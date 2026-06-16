@@ -1,2 +1,20 @@
 @tailwind base; @tailwind components; @tailwind utilities;
 body { margin: 0; background: #030712; color: white; font-family: system-ui, sans-serif; }
+
+@media print {
+  body { background: white !important; color: black !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, .no-print, button, .config-panel, .preview-header { display: none !important; }
+  .max-w-6xl.mx-auto { max-width: 100% !important; }
+  .preview-container {
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .card-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  @page { margin: 1cm; size: A4; }
+}
